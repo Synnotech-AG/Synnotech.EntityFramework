@@ -24,14 +24,17 @@ public abstract class ReadOnlySession<TDbContext> : IDisposable
     /// Initializes a new instance of <see cref="ReadOnlySession{TDbContext}" />.
     /// </summary>
     /// <param name="context">The EF DbContext used for database access.</param>
+    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be set to false (optional) </param>
     /// <param name="isolationLevel">
     /// The isolation level of the transaction (optional). If null is specified, no
     /// transaction will be started.
     /// </param>
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="context" /> is null.</exception>
-    protected ReadOnlySession(TDbContext context, IsolationLevel? isolationLevel = null)
+    protected ReadOnlySession(TDbContext context, bool disableQueryTracking = false, IsolationLevel? isolationLevel = null)
     {
         Context = context.MustNotBeNull();
+        if (disableQueryTracking)
+            context.Configuration.AutoDetectChangesEnabled = false;
         if (isolationLevel.HasValue)
             Transaction = Context.Database.BeginTransaction(isolationLevel.Value);
     }
