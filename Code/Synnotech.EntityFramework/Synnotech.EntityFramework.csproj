@@ -1,8 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFrameworks>netstandard2.1;net462</TargetFrameworks>
         <Nullable>enable</Nullable>
+        <LangVersion>10.0</LangVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Synnotech.DatabaseAbstractions" Version="3.0.0" />
+        <PackageReference Include="Light.GuardClauses" Version="10.0.0" />
+        <PackageReference Include="EntityFramework" Version="6.4.4" />
+    </ItemGroup>
 
 </Project>

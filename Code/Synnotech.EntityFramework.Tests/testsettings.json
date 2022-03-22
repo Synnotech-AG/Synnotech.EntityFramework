@@ -1,0 +1,6 @@
+﻿{
+    "integrationTests": {
+        "areTestsEnabled": false,
+        "connectionString": "Server=(localdb)\\MsSqlLocalDB; Database=SynnotechEntityFrameworkIntegrationTests; Integrated Security=true"
+    } 
+}
