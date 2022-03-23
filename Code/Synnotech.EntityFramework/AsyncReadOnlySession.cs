@@ -32,7 +32,7 @@ namespace Synnotech.EntityFramework
         /// transaction will be started.
         /// </param>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context" /> is null.</exception>
-        protected AsyncReadOnlySession(TDbContext context, bool disableQueryTracking = true, IsolationLevel? isolationLevel = null)
+        protected AsyncReadOnlySession(TDbContext context, bool disableQueryTracking = false, IsolationLevel? isolationLevel = null)
         {
             Context = context.MustNotBeNull(nameof(context));
             if (disableQueryTracking)
