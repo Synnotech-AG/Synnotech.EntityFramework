@@ -1,21 +1,24 @@
 ﻿using System.Data.Entity;
-using FluentAssertions;
 
 namespace Synnotech.EntityFramework.Tests;
 
 public class TestContext : DbContext
 {
+    static TestContext() =>
+        Database.SetInitializer<TestContext>(null);
+
     public TestContext(string connectionString) : base(connectionString) { }
 
-    public DbSet<Person> Persons => Set<Person>();
-
+#nullable disable
+    public DbSet<Contact> Contacts { get; set; }
+#nullable restore
 }
 
-public class Person
+public class Contact
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
 
     public string FirstName { get; set; } = string.Empty;
 
