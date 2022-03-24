@@ -1,10 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;net47</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net462</TargetFrameworks>
         <Nullable>enable</Nullable>
         <LangVersion>10.0</LangVersion>
+        <Authors>Synnotech AG</Authors>
+        <Company>Synnotech AG</Company>
+        <Version>0.1.0</Version>
+        <Copyright>Copyright © Synnotech AG 2022</Copyright>
+        <Description>Implements Synnotech.DatabaseAbstractions for Entity Framework.</Description>
+        <IsPackable>true</IsPackable>
+        <TreatWarningsAsErrors Condition="'$(Configuration)' == 'Release'">true</TreatWarningsAsErrors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PackageTags>Database-Access, Entity-Framework, EF, Extension, Unit-of-Work</PackageTags>
+        <PackageIcon>synnotech-logo.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/Synnotech-AG/Synnotech.EntityFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Synnotech-AG/Synnotech.EntityFramework.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReleaseNotes>
+Synnotech.EntityFramework 0.1.0
+-----------------------------------
+
+- Initial release
+- Implements Synnotech.DataAbstractions 3.0.0 for Entity Framework
+- see the full docs at https://github.com/Synnotech-AG/Synnotech.EntityFramework
+        </PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,6 +40,11 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
         <PackageReference Include="Synnotech.Core" Version="0.3.0" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../synnotech-logo.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
