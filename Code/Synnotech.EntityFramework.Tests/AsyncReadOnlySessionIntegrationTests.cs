@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -35,6 +34,7 @@ public sealed class AsyncReadOnlySessionIntegrationTests : DbIntegrationTest
     private sealed class EfGetContactAsyncSession : AsyncReadOnlySession<TestContext>, IGetContactSessionAsync
     {
         public EfGetContactAsyncSession(TestContext context) : base(context) { }
+
         public Task<List<Contact>> GetContactsAsync() =>
             Context.Contacts.ToListAsync();
     }

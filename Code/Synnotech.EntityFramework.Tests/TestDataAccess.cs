@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Threading;
+using System.Threading.Tasks;
 using FluentAssertions;
 
 namespace Synnotech.EntityFramework.Tests;
@@ -12,6 +14,8 @@ public class TestContext : DbContext
 
     private int DisposeCount { get; set; }
 
+    private int SaveChangesCount { get; set; }
+
 #nullable disable
     public DbSet<Contact> Contacts { get; set; }
 #nullable restore
@@ -21,6 +25,15 @@ public class TestContext : DbContext
         base.Dispose(disposing);
         DisposeCount++;
     }
+
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        SaveChangesCount++;
+        return base.SaveChangesAsync(cancellationToken);
+    }
+
+    public void SaveChangesMustHaveBeenCalled() =>
+        SaveChangesCount.Should().Be(1);
 
     public void ShouldBeDisposed() =>
         DisposeCount.Should().BeGreaterOrEqualTo(1);
