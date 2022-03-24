@@ -8,7 +8,7 @@ using Synnotech.DatabaseAbstractions;
 namespace Synnotech.EntityFramework;
 
 /// <summary>
-/// Represents an adapter for the Entity Framework Core <see cref="DbContextTransaction" /> that
+/// Represents an adapter for the Entity Framework <see cref="DbContextTransaction" /> that
 /// implements <see cref="IAsyncTransaction" />. The transaction will be implicitly rolled back
 /// when commit was not called and the transaction was disposed.
 /// </summary>

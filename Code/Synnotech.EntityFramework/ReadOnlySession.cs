@@ -24,7 +24,7 @@ public abstract class ReadOnlySession<TDbContext> : IDisposable
     /// Initializes a new instance of <see cref="ReadOnlySession{TDbContext}" />.
     /// </summary>
     /// <param name="context">The EF DbContext used for database access.</param>
-    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be set to false (optional) </param>
+    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be disabled (optional).</param>
     /// <param name="isolationLevel">
     /// The isolation level of the transaction (optional). If null is specified, no
     /// transaction will be started.

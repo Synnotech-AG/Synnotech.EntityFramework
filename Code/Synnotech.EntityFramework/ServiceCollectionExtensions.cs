@@ -32,10 +32,10 @@ public static class ServiceCollectionExtensions
     }
 
     /// <summary>
-    /// Registers your Entity Framework settings with the DI container
+    /// Registers your Entity Framework settings with the DI container.
     /// </summary>
     /// <param name="services">The collection that holds all registrations for the DI container.</param>
-    /// <param name="configurationSectionName">The configurationSectionName is used to get the correct section from your settings file. The default value is "database"</param>
+    /// <param name="configurationSectionName">The configurationSectionName is used to get the correct section from your settings file. The default value is "database".</param>
     public static IServiceCollection AddEfSettings(this IServiceCollection services,
                                                    string configurationSectionName = EfSettings.DefaultSectionName)
     {
@@ -44,12 +44,13 @@ public static class ServiceCollectionExtensions
     }
 
     /// <summary>
-    ///  Enables Logging in case you set IsLoggingEnabled in your EfSettings to true
+    /// Enables logging in case you set IsLoggingEnabled in your EfSettings to true.
     /// </summary>
-    /// <param name="context">The implementation of DbContext</param>
+    /// <param name="context">The implementation of DbContext.</param>
     /// <param name="logger">The logger you are using.</param>
-    /// <param name="efSettings">The Entity Framework you set. To enable logging, you must set set IsLoggingEnabled in your EfSettings to true</param>
+    /// <param name="efSettings">The settings instance. To enable logging, you must set IsLoggingEnabled to true.</param>
     /// <typeparam name="TDbContext">Your subtype that derives from <see cref="DbContext" />.</typeparam>
+    /// <exception cref="ArgumentNullException">Thrown when any parameter is null.</exception>
     public static TDbContext EnableLoggingIfNecessary<TDbContext>(this TDbContext context, ILogger logger, EfSettings efSettings)
         where TDbContext : DbContext
     {

@@ -23,13 +23,13 @@ public abstract class DbIntegrationTest : IAsyncLifetime
 
     public Task DisposeAsync() => Task.CompletedTask;
 
-    private bool CheckIfIntegrationTestsAreEnabled() =>
+    private static bool CheckIfIntegrationTestsAreEnabled() =>
         TestSettings.Configuration.GetValue<bool>("integrationTests:areTestsEnabled");
 
-    private string GetConnectionString() =>
+    private static string GetConnectionString() =>
         TestSettings.Configuration["integrationTests:connectionString"];
 
-    protected string GetConnectionStringOrSkip()
+    protected static string GetConnectionStringOrSkip()
     {
         Skip.IfNot(CheckIfIntegrationTestsAreEnabled());
         return GetConnectionString();

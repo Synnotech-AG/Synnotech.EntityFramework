@@ -25,7 +25,7 @@ public abstract class AsyncTransactionalSession<TDbContext> : AsyncSession<TDbCo
     /// Initializes a new instance of <see cref="AsyncTransactionalSession{TDbContext}" />.
     /// </summary>
     /// <param name="context">The EF DbContext used for database access.</param>
-    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be set to false (optional) </param>
+    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be disabled (optional).</param>
     /// <param name="isolationLevel">
     /// The isolation level of the transaction (optional). If null is specified, no
     /// transaction will be started.
@@ -37,7 +37,8 @@ public abstract class AsyncTransactionalSession<TDbContext> : AsyncSession<TDbCo
     /// <summary>
     /// <para>
     /// Begins a new transaction asynchronously. You must dispose the returned transaction by yourself. The
-    /// session will not track any of the transactions that are created via this method.
+    /// session will not track any of the transactions that are created via this method (but
+    /// the EF DbContext will track the transaction internally).
     /// </para>
     /// <para>
     /// Be aware that commiting the transaction will not automatically call SaveChangesAsync! You must call SaveChangesAsync

@@ -22,10 +22,10 @@ public abstract class Session<TDbContext> : ReadOnlySession<TDbContext>, ISessio
     where TDbContext : DbContext
 {
     /// <summary>
-    /// Initializes a new instance of <see cref="AsyncSession{TDbContext}" />.
+    /// Initializes a new instance of <see cref="Session{TDbContext}" />.
     /// </summary>
     /// <param name="context">The EF DbContext used for database access.</param>
-    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be set to false (optional) </param>
+    /// <param name="disableQueryTracking"> The value indicating whether the query tracking behavior will be disabled (optional).</param>
     /// <param name="isolationLevel">
     /// The isolation level of the transaction (optional). If null is specified, no
     /// transaction will be started.
@@ -34,7 +34,7 @@ public abstract class Session<TDbContext> : ReadOnlySession<TDbContext>, ISessio
     protected Session(TDbContext context,bool disableQueryTracking = false, IsolationLevel? isolationLevel = null) : base(context, disableQueryTracking, isolationLevel) { }
 
     /// <summary>
-    /// Calls SaveChanges on the internal DB context of Entity Framework Core.
+    /// Calls SaveChanges on the internal DB context of Entity Framework.
     /// </summary>
     public void SaveChanges()
     {

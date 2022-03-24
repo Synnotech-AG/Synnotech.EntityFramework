@@ -16,7 +16,7 @@ public sealed class AsyncSessionIntegrationTests : DbIntegrationTest
 
         await using (var session = new EfAddContactSession(context))
         {
-            session.AddContactAsync(contact);
+            session.AddContact(contact);
             await session.SaveChangesAsync();
         }
 
@@ -27,14 +27,14 @@ public sealed class AsyncSessionIntegrationTests : DbIntegrationTest
 
     private interface IAddContactSessionAsync : IAsyncSession
     {
-        void AddContactAsync(Contact contact);
+        void AddContact(Contact contact);
     }
 
     private sealed class EfAddContactSession : AsyncSession<TestContext>, IAddContactSessionAsync
     {
         public EfAddContactSession(TestContext context) : base(context) { }
 
-        public void AddContactAsync(Contact contact) =>
+        public void AddContact(Contact contact) =>
             Context.Contacts.Add(contact);
     }
 }

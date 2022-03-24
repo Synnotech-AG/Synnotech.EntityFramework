@@ -26,7 +26,7 @@ public class TestContext : DbContext
         DisposeCount++;
     }
 
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
         SaveChangesCount++;
         return base.SaveChangesAsync(cancellationToken);
