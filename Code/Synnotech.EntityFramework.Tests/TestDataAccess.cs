@@ -32,6 +32,12 @@ public class TestContext : DbContext
         return base.SaveChangesAsync(cancellationToken);
     }
 
+    public override int SaveChanges()
+    {
+        SaveChangesCount++;
+        return base.SaveChanges();
+    }
+
     public void SaveChangesMustHaveBeenCalled() =>
         SaveChangesCount.Should().Be(1);
 
