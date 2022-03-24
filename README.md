@@ -5,9 +5,11 @@ Implements Synnotech.DatabaseAbstractions for Entity Framework
 
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/Synnotech-AG/Synnotech.EntityFramework/blob/main/LICENSE)
+[![NuGet](https://img.shields.io/badge/NuGet-0.1.0-blue.svg?style=for-the-badge)](https://www.nuget.org/packages/Synnotech.EntityFramework/)
+
 
 # How to install
-The Synnotech.EntityFramework packages are compiled against [.NET Standard 2.1 and .NET Framework 47](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) and thus supports all major plattforms like .NET 6, .NET Core, .NET Framework 4.7 or newer, Mono, Xamarin, UWP, or Unity.
+The Synnotech.EntityFramework packages are compiled against [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) and .NET Framework 4.6 and thus supports all major plattforms like .NET 6, .NET Core, .NET Framework 4.6.2 or newer, Mono, Xamarin, UWP, or Unity.
 
 # Writing custom sessions
 
