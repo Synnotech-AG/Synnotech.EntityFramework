@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;net462</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net47</TargetFrameworks>
         <Nullable>enable</Nullable>
         <LangVersion>10.0</LangVersion>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>

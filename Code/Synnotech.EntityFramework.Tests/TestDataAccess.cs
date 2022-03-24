@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using FluentAssertions;
 
 namespace Synnotech.EntityFramework.Tests;
 
@@ -9,9 +10,20 @@ public class TestContext : DbContext
 
     public TestContext(string connectionString) : base(connectionString) { }
 
+    private int DisposeCount { get; set; }
+
 #nullable disable
     public DbSet<Contact> Contacts { get; set; }
 #nullable restore
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        DisposeCount++;
+    }
+
+    public void ShouldBeDisposed() =>
+        DisposeCount.Should().BeGreaterOrEqualTo(1);
 }
 
 public class Contact
