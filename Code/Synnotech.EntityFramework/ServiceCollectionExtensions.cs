@@ -37,11 +37,19 @@ public static class ServiceCollectionExtensions
     /// <param name="services">The collection that holds all registrations for the DI container.</param>
     /// <param name="configurationSectionName">The configurationSectionName is used to get the correct section from your settings file. The default value is "database".</param>
     public static IServiceCollection AddEfSettings(this IServiceCollection services,
-                                                   string configurationSectionName = EfSettings.DefaultSectionName)
-    {
+                                                   string configurationSectionName = EfSettings.DefaultSectionName) =>
         services.AddSingleton(container => EfSettings.FromConfiguration(container.GetRequiredService<IConfiguration>(), configurationSectionName));
-        return services;
-    }
+
+    /// <summary>
+    /// Registers your subclass of <see cref="EfSettings" /> with the DI container as a singleton.
+    /// </summary>
+    /// <typeparam name="T">The subclass of <see cref="EfSettings" />.</typeparam>
+    /// <param name="services">The collection that holds all registrations for the DI container.</param>
+    /// <param name="configurationSectionName">The configurationSectionName is used to get the correct section from your settings file. The default value is "database".</param>
+    public static IServiceCollection AddEfSettings<T>(this IServiceCollection services,
+                                                      string configurationSectionName = EfSettings.DefaultSectionName)
+        where T : EfSettings =>
+        services.AddSingleton(container => EfSettings.FromConfiguration<T>(container.GetRequiredService<IConfiguration>(), configurationSectionName));
 
     /// <summary>
     /// Enables logging in case you set IsLoggingEnabled in your EfSettings to true.
