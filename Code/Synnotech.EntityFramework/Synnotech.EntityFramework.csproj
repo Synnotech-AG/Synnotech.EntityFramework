@@ -6,7 +6,7 @@
         <LangVersion>10.0</LangVersion>
         <Authors>Synnotech AG</Authors>
         <Company>Synnotech AG</Company>
-        <Version>0.1.0</Version>
+        <Version>0.2.0</Version>
         <Copyright>Copyright © Synnotech AG 2022</Copyright>
         <Description>Implements Synnotech.DatabaseAbstractions for Entity Framework.</Description>
         <IsPackable>true</IsPackable>
@@ -23,11 +23,10 @@
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReleaseNotes>
-Synnotech.EntityFramework 0.1.0
+Synnotech.EntityFramework 0.2.0
 -----------------------------------
 
-- Initial release
-- Implements Synnotech.DataAbstractions 3.0.0 for Entity Framework
+- new AddEfSettings&lt;T&gt; overload that allows to register subclasses of EfSettings with the DI container
 - see the full docs at https://github.com/Synnotech-AG/Synnotech.EntityFramework
         </PackageReleaseNotes>
     </PropertyGroup>
